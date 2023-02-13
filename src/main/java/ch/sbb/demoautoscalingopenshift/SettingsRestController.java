@@ -57,7 +57,7 @@ public class SettingsRestController {
     while (counter < max) {
 
       // Print the number
-      System.out.print(num1 + " ");
+      System.out.println(num1 + " ");
 
       // Swap
       long num3 = num2 + num1;
