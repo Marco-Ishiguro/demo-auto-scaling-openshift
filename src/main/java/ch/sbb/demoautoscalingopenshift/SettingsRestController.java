@@ -12,7 +12,7 @@ public class SettingsRestController {
 
   private List<String> text;
 
-  
+
   @GetMapping("/memory/{numberOf}")
   public long consumeMemory(@PathVariable long numberOf){
       text = new ArrayList<>();
@@ -65,7 +65,7 @@ public class SettingsRestController {
       num2 = num3;
       counter = counter + 1;
     }
-    return "done";
+    return "done "+counter;
   }
 
 
