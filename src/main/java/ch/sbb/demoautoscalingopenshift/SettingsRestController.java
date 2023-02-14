@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,6 +68,29 @@ public class SettingsRestController {
     }
     return "done";
   }
+
+  @GetMapping("/long/{max}")
+  public List<String> longRequests(@PathVariable long max){
+    BigInteger num1 = BigInteger.ZERO, num2 = BigInteger.ONE;
+
+    long counter = 0;
+    List<String> result = new ArrayList<>();
+
+    // Iterate till counter is N
+    while (counter < max) {
+
+      // Print the number
+      result.add(num1.toString());
+
+      // Swap
+      BigInteger num3 = num2.add(num1);
+      num1 = num2;
+      num2 = num3;
+      counter = counter + 1;
+    }
+    return result;
+  }
+
 
 
 }
