@@ -13,7 +13,7 @@ public class SettingsRestController {
 
   private List<String> text;
 
-  
+
   @GetMapping("/memory/{numberOf}")
   public long consumeMemory(@PathVariable long numberOf){
       text = new ArrayList<>();
@@ -58,7 +58,7 @@ public class SettingsRestController {
     while (counter < max) {
 
       // Print the number
-      System.out.print(num1 + " ");
+      System.out.println(num1 + " ");
 
       // Swap
       long num3 = num2 + num1;
@@ -66,11 +66,11 @@ public class SettingsRestController {
       num2 = num3;
       counter = counter + 1;
     }
-    return "done";
+    return "done "+counter;
   }
 
   @GetMapping("/long/{max}")
-  public List<String> longRequests(@PathVariable long max){
+  public List<String> longRequests(@PathVariable long max) throws InterruptedException{
     BigInteger num1 = BigInteger.ZERO, num2 = BigInteger.ONE;
 
     long counter = 0;
@@ -78,7 +78,7 @@ public class SettingsRestController {
 
     // Iterate till counter is N
     while (counter < max) {
-
+      Thread.sleep(100);
       // Print the number
       result.add(num1.toString());
 
@@ -90,7 +90,5 @@ public class SettingsRestController {
     }
     return result;
   }
-
-
 
 }
